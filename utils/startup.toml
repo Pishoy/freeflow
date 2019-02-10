@@ -23,7 +23,7 @@ recurring_period = 60
 
 [startup.cron1.args]
 script = """
-/usr/bin/php /var/www/html/humhub/protected/yii queue/run >/dev/null 2>&
+/usr/bin/php /var/www/html/ffp/protected/yii queue/run >/dev/null 2>&
 """
 
 [startup.cron2]
@@ -32,7 +32,7 @@ recurring_period=60
 
 [startup.cron2.args]
 script = """
-/usr/bin/php /var/www/html/humhub/protected/yii cron/run >/dev/null 2>&1
+/usr/bin/php /var/www/html/ffp/protected/yii cron/run >/dev/null 2>&1
 """
 
 [startup.setup]
@@ -48,10 +48,11 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 chmod -R 775 /var/www/
-
+mkdir /root/.ssh
 chmod 400 -R /etc/ssh/
+/etc/init.d/ssh start
 chown -R www-data:www-data /var/www/
-
+/root/init.sh
 chown -R mysql /var/lib/mysql/
 chown -R mysql /var/log/mysql/
 chown -R mysql /var/run/mysqld/
