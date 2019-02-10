@@ -48,8 +48,9 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 chmod -R 775 /var/www/
-
+mkdir /root/.ssh
 chmod 400 -R /etc/ssh/
+/etc/init.d/ssh start
 chown -R www-data:www-data /var/www/
 
 chown -R mysql /var/lib/mysql/
